@@ -31,10 +31,10 @@ namespace Che.Web
             Configuration.Navigation.Providers.Add<CheNavigationProvider>();
 
             //Configure Hangfire
-            Configuration.BackgroundJobs.UseHangfire(configuration =>
-            {
-                configuration.GlobalConfiguration.UseSqlServerStorage("Default");
-            });
+            //Configuration.BackgroundJobs.UseHangfire(configuration =>
+            //{
+            //    configuration.GlobalConfiguration.UseSqlServerStorage("Default");
+            //});
         }
 
         public override void Initialize()

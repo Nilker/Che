@@ -1,11 +1,14 @@
 ﻿using System.Data.Common;
+using System.Data.Entity;
 using Abp.Zero.EntityFramework;
 using Che.Authorization.Roles;
 using Che.MultiTenancy;
 using Che.Users;
+using MySql.Data.Entity;
 
 namespace Che.EntityFramework
 {
+    [DbConfigurationType(typeof(MySqlEFConfiguration))]
     public class CheDbContext : AbpZeroDbContext<Tenant, Role, User>
     {
         //TODO: Define an IDbSet for your Entities...
