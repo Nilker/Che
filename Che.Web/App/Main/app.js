@@ -1,6 +1,6 @@
 ﻿(function () {
     'use strict';
-    
+
     var app = angular.module('app', [
         'ngAnimate',
         'ngSanitize',
@@ -15,7 +15,13 @@
     //Configuration for Angular UI routing.
     app.config([
         '$stateProvider', '$urlRouterProvider',
-        function($stateProvider, $urlRouterProvider) {
+        function ($stateProvider, $urlRouterProvider) {
+            console.log("$stateProvider---:");
+            console.log($stateProvider);
+            console.log($stateProvider.state);
+            console.log("$urlRouterProvider---:" );
+            console.log($urlRouterProvider);
+
             $urlRouterProvider.otherwise('/');
 
             if (abp.auth.hasPermission('Pages.Tenants')) {
@@ -38,7 +44,13 @@
                     url: '/about',
                     templateUrl: '/App/Main/views/about/about.cshtml',
                     menu: 'About' //Matches to name of 'About' menu in CheNavigationProvider
+                })
+                .state('lhl', {
+                    url: '/lhl',
+                    templateUrl: '/App/Main/views/lhl/lhl.cshtml',
+                    menu:'lhl'
                 });
+            
         }
     ]);
 })();

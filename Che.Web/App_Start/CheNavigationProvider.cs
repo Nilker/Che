@@ -37,7 +37,12 @@ namespace Che.Web
                         url: "#/about",
                         icon: "fa fa-info"
                         )
-                );
+                ).AddItem(new MenuItemDefinition(
+                    "lhl",
+                    L("lhl"),
+                    url: "#/lhl",
+                    icon: "fa fa-globe"
+                    ));
         }
 
         private static ILocalizableString L(string name)
