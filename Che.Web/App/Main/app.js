@@ -22,35 +22,52 @@
             console.log("$urlRouterProvider---:" );
             console.log($urlRouterProvider);
 
-            $urlRouterProvider.otherwise('/');
+            //$urlRouterProvider.otherwise('/');
 
-            if (abp.auth.hasPermission('Pages.Tenants')) {
-                $stateProvider
-                    .state('tenants', {
-                        url: '/tenants',
-                        templateUrl: '/App/Main/views/tenants/index.cshtml',
-                        menu: 'Tenants' //Matches to name of 'Tenants' menu in CheNavigationProvider
-                    });
-                $urlRouterProvider.otherwise('/tenants');
-            }
+            //if (abp.auth.hasPermission('Pages.Tenants')) {
+            //    $stateProvider
+            //        .state('tenants', {
+            //            url: '/tenants',
+            //            templateUrl: '/App/Main/views/tenants/index.cshtml',
+            //            menu: 'Tenants' //Matches to name of 'Tenants' menu in CheNavigationProvider
+            //        });
+            //    $urlRouterProvider.otherwise('/tenants');
+            //}
 
+            //$stateProvider
+            //    .state('home', {
+            //        url: '/',
+            //        templateUrl: '/App/Main/views/home/home.cshtml',
+            //        menu: 'Home' //Matches to name of 'Home' menu in CheNavigationProvider
+            //    })
+            //    .state('about', {
+            //        url: '/about',
+            //        templateUrl: '/App/Main/views/about/about.cshtml',
+            //        menu: 'About' //Matches to name of 'About' menu in CheNavigationProvider
+            //    })
+            //    .state('lhl', {
+            //        url: '/lhl',
+            //        templateUrl: '/App/Main/views/lhl/lhl.cshtml',
+            //        menu:'lhl'
+            //    });
+
+            $urlRouterProvider
+                  .otherwise('/app/Main/Views/lhl.cshtml');
             $stateProvider
-                .state('home', {
-                    url: '/',
-                    templateUrl: '/App/Main/views/home/home.cshtml',
-                    menu: 'Home' //Matches to name of 'Home' menu in CheNavigationProvider
+                .state('app', {
+                    abstract: true,
+                    url: '/app',
+                    templateUrl: '/app/Main/Views/lhl.cshtml'
                 })
-                .state('about', {
-                    url: '/about',
-                    templateUrl: '/App/Main/views/about/about.cshtml',
-                    menu: 'About' //Matches to name of 'About' menu in CheNavigationProvider
-                })
-                .state('lhl', {
-                    url: '/lhl',
-                    templateUrl: '/App/Main/views/lhl/lhl.cshtml',
-                    menu:'lhl'
+                .state('app.dashboard', {
+                    url: '/dashboard',
+                    templateUrl: '/app/Main/Views/lhl.cshtml',
+                    ncyBreadcrumb: {
+                        label: 'Dashboard',
+                        description: ''
+                    }
                 });
-            
+
         }
     ]);
 })();

@@ -24,7 +24,7 @@ angular.module('app')
                             var position = (readCookie("rtl-support") || location.pathname == "/index-rtl-fa.html" || location.pathname == "/index-rtl-ar.html") ? 'right' : 'left';
                             $('.sidebar-menu').slimscroll({
                                 height: $(window).height() - 90,
-                                position: position,
+                                //position: position,
                                 size: '3px',
                                 color: themeprimary
                             });
